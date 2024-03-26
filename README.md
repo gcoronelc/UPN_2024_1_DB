@@ -1,4 +1,4 @@
-![DISEÑO DE BASE DE DATOS RELACIONALES](https://raw.githubusercontent.com/gcoronelc/CEPSUNI-DISBD-64751/master/img/DISBDR.png)
+![DISEÑO DE BASE DE DATOS RELACIONALES](https://raw.githubusercontent.com/gcoronelc/UPN_2024_1_DB/master/img/logo.png)
 
 # DATOS GENERALES del curso
 
