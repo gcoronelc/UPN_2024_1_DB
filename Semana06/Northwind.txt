@@ -1,0 +1,44 @@
+https://www.sql-practice.com/
+
+
+/*
+Los pedidos que su destino es Brazil
+*/
+
+
+select * 
+from orders
+where ship_country = 'Brazil';
+
+
+/*
+La cantidad de pedidos por cliente y su importe respectivo.
+
+CLIENTE   CANT_PEDIDOS    IMPORTE
+*/
+
+SELECT 
+	O.CUSTOMER_ID,
+    COUNT(DISTINCT O.ORDER_ID) PEDIDOS,
+    SUM(D.quantity * P.unit_price) IMPORTE
+FROM ORDERS O 
+JOIN ORDER_DETAILS D ON O.ORDER_ID = D.ORDER_ID
+JOIN PRODUCTS P ON D.product_id = P.product_id
+GROUP BY O.CUSTOMER_ID;
+
+
+SELECT COUNT(1) FROM ORDERS;
+
+
+WITH 
+T1 AS (
+  SELECT 
+      O.CUSTOMER_ID,
+      COUNT(DISTINCT O.ORDER_ID) PEDIDOS,
+      SUM(D.quantity * P.unit_price) IMPORTE
+  FROM ORDERS O 
+  JOIN ORDER_DETAILS D ON O.ORDER_ID = D.ORDER_ID
+  JOIN PRODUCTS P ON D.product_id = P.product_id
+  GROUP BY O.CUSTOMER_ID
+)
+SELECT SUM(PEDIDOS) FROM T1;
